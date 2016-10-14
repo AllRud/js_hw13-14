@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>HwJs13-14</title>
+	<script 
+		type="text/javascript"
+		src="http://code.jquery.com/jquery-1.12.4.min.js" 
+		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" 
+		crossorigin="anonymous">
+	</script>
+	<script type="text/javascript" src="js/tmpl.js"></script>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/jsHw14.css" rel="stylesheet">
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+<!-- The template for placement of the test Information -->
+
+	<div class="row wrapper">
+		<article class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3  article-main">
+			<ol id="results" class="article-ol" >
+				output results here.
+			</ol>
+			<input id = 'btn-test' class="btn btn-info article-btn" value="Проверить мои результаты" type="button">
+		</article>
+	</div>
+
+<!-- Script for posting information from a template   -->
+
+	<script type="text/html" id="item_tmpl">
+		<h1 class="article-h1 h1-test"><%=headH1%></h1>
+		<% for ( var i = 0; i < quests.length; i++ ){%>
+	   		<li class="article-ol-item">
+	   			<span class="article-ol-span article-ol-span-test"><%=quests[i].quest%>"
+	   			</span>
+	   			<form role="form">
+	   				<div class="radio radio-test">
+	   				<%var obj = quests[i];
+	   				for ( var key in obj){
+	   					if (key == 'quest'|| key == 'answTrue') continue;%>
+	   					<label class="radio-label radio-label-test">
+	   						<input value="<%=key%>" name="optradio" class="radio-input radio-input-test" type="radio"><%=obj[key]%>
+	   					</label>
+	   					<%}%>
+	   				</div>
+	   				<input type="reset" class="btn-reset" >
+				</form>
+			</li>
+	   	<% } %>
+	</script>
+	
+<!--The modal window-->
+
+	<!-- Overlay for the modal window -->
+
+	<div id="overlay" class="overlayDialog">
+
+	<!-- Directly the modal window  -->
+	</div>
+	<div id='formModal' class="modalDialog" >
+		<span id='closeForm' class="modalDialog-close" >X</span>
+		<h2 class="h2-modal" >Результаты теста</h2>
+		<p id = 'res'></p>
+		<input id = 'btn-mod' class="btn btn-info article-btn" value="Закрыть" type="button">
+	</div>
+
+	<script src="js/bootstrap.js"></script>
+	<script src="js/script14.js"></script>
+</body>
+</html>
