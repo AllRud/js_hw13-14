@@ -87,7 +87,7 @@ function checkRezalt(){
 		for (var i=0; i < checkedEl.length; i++){
 			if(checkedEl[i].value != test.quests[i].answTrue){
 				mist = true;
-				var res_folse = res_folse + (i + 1) + ',' ;
+				res_folse = res_folse + (i + 1) + ',' ;
 			}
 		};
 	};
